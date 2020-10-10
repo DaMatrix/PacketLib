@@ -44,6 +44,19 @@
         <url>https://github.com/Steveice10/PacketLib/issues</url>
     </issueManagement>
 
+    <distributionManagement>
+        <repository>
+            <id>daporkchop-release</id>
+            <name>daporkchop-release</name>
+            <url>https://maven.daporkchop.net/release/</url>
+        </repository>
+        <snapshotRepository>
+            <id>daporkchop-snapshot</id>
+            <name>daporkchop-snapshot</name>
+            <url>https://maven.daporkchop.net/snapshot/</url>
+        </snapshotRepository>
+    </distributionManagement>
+
     <dependencies>
         <dependency>
             <groupId>io.netty</groupId>
