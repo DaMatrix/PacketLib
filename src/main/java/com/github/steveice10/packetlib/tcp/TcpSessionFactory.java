@@ -5,7 +5,9 @@ import com.github.steveice10.packetlib.ConnectionListener;
 import com.github.steveice10.packetlib.Server;
 import com.github.steveice10.packetlib.Session;
 import com.github.steveice10.packetlib.SessionFactory;
+import com.github.steveice10.packetlib.packet.PacketProtocol;
 
+import java.net.InetSocketAddress;
 import java.net.Proxy;
 
 /**
@@ -29,5 +31,10 @@ public class TcpSessionFactory implements SessionFactory {
     @Override
     public ConnectionListener createServerListener(final Server server) {
         return new TcpConnectionListener(server.getHost(), server.getPort(), server);
+    }
+
+    @Override
+    public Session createServerSession(InetSocketAddress address, PacketProtocol protocol, Server server) {
+        return new TcpServerSession(address.getHostName(), address.getPort(), protocol, server);
     }
 }

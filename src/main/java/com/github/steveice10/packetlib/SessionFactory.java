@@ -1,5 +1,9 @@
 package com.github.steveice10.packetlib;
 
+import com.github.steveice10.packetlib.packet.PacketProtocol;
+
+import java.net.InetSocketAddress;
+
 /**
  * A factory for creating sessions.
  */
@@ -19,4 +23,6 @@ public interface SessionFactory {
      * @return The created listener.
      */
     public ConnectionListener createServerListener(Server server);
+
+    public Session createServerSession(InetSocketAddress address, PacketProtocol protocol, Server server);
 }

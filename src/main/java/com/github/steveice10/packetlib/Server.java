@@ -272,4 +272,8 @@ public class Server {
             }
         });
     }
+
+    public SessionFactory getFactory() {
+        return this.factory;
+    }
 }

@@ -70,7 +70,7 @@ public class TcpConnectionListener implements ConnectionListener {
                 InetSocketAddress address = (InetSocketAddress) channel.remoteAddress();
                 PacketProtocol protocol = server.createPacketProtocol();
 
-                TcpSession session = new TcpServerSession(address.getHostName(), address.getPort(), protocol, server);
+                TcpSession session = (TcpSession) server.getFactory().createServerSession(address, protocol, server);
                 session.getPacketProtocol().newServerSession(server, session);
 
                 channel.config().setOption(ChannelOption.IP_TOS, 0x18);
