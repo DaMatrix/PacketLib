@@ -143,4 +143,24 @@ public abstract class PacketProtocol {
 
         return this.outgoing.get(packet);
     }
+
+    /**
+     * Checks whether the given ID corresponds to a known incoming packet type.
+     *
+     * @param id the packet ID
+     * @return whether the given ID corresponds to a known incoming packet type
+     */
+    public final boolean hasIncoming(int id) {
+        return id >= 0 && this.incoming.containsKey(id);
+    }
+
+    /**
+     * Checks whether the given packet class corresponds to a known packet ID.
+     *
+     * @param packet the packet class
+     * @return whether the given packet class corresponds to a known packet ID
+     */
+    public final boolean hasOutgoing(Class<? extends Packet> packet) {
+        return this.outgoing.containsKey(packet);
+    }
 }
